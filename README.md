@@ -81,7 +81,8 @@ export KUBECONFIG=~/.kube/eks-cluster
 Initially, only the system that deployed the cluster will be able to access the cluster. To authorize other users for accessing the cluster, aws-auth config needs to be modified by using the steps given below:
 
 . Open the aws-auth file in the edit mode on the machine that has been used to deploy EKS cluster:
-```sudo kubectl edit -n kube-system configmap/aws-auth ```
+```sudo kubectl edit -n kube-system configmap/aws-auth 
+```
 . Add the following configuration in that file by changing the placeholders:
 ```mapUsers: 
   - userarn: arn:aws:iam::111122223333:user/<username>
