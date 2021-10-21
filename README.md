@@ -1,18 +1,18 @@
 # Kubernetes application-Terraform-aws-EKS
 Deploy a full AWS EKS cluster with Terraform
 # What resources are created
-1.VPC
-2.Internet Gateway (IGW)
-3.Public and Private Subnets
-4.Security Groups, Route Tables and Route Table Associations
-5.IAM roles, instance profiles and policies
-6.An EKS Cluster
-7.EKS Managed Node group
-8.Autoscaling group and Launch Configuration
-9.Worker Nodes in a private Subnet
-10.bastion host for ssh access to the VPC
-11.The ConfigMap required to register Nodes with EKS
-12.KUBECONFIG file to authenticate kubectl using the aws eks get-token command. needs awscli version 1.16.156 >
+* 1.VPC
+* 2.Internet Gateway (IGW)
+* 3.Public and Private Subnets
+* 4.Security Groups, Route Tables and Route Table Associations
+* 5.IAM roles, instance profiles and policies
+* 6.An EKS Cluster
+* 7.EKS Managed Node group
+*8.Autoscaling group and Launch Configuration
+*9.Worker Nodes in a private Subnet
+*10.bastion host for ssh access to the VPC
+* 11.The ConfigMap required to register Nodes with EKS
+* 12.KUBECONFIG file to authenticate kubectl using the aws eks get-token command. needs awscli version 1.16.156 >
 # Configuration
 
 You can configure you config with the following input variables:
