@@ -114,7 +114,7 @@ Initially, only the system that deployed the cluster will be able to access the 
 # Cleaning up
 You can destroy this cluster entirely by running:
 
-```terraform plan -destroy 
-    terraform destroy  --force
-```
+``` terraform plan -destroy  ```
+``` terraform destroy  --force ```
+
 
