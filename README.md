@@ -1,7 +1,6 @@
 # Kubernetes application-Terraform-aws-EKS
 Deploy a full AWS EKS cluster with Terraform
 # What resources are created
-------------------------------------------------------------------------------------------
 1.VPC
 2.Internet Gateway (IGW)
 3.Public and Private Subnets
@@ -15,7 +14,7 @@ Deploy a full AWS EKS cluster with Terraform
 11.The ConfigMap required to register Nodes with EKS
 12.KUBECONFIG file to authenticate kubectl using the aws eks get-token command. needs awscli version 1.16.156 >
 # Configuration
----------------------------------------------------------------------------------------------------------------------
+
 You can configure you config with the following input variables:
 |      Name           |    Description  	                     |    Default                                  |   
 |---------------------|----------------------------------------|---------------------------------------------|
@@ -47,8 +46,8 @@ The AWS credentials must be associated with a user having at least the following
 7.AmazonEKS_CNI_Policy
 8.AmazonEC2FullAccess
 In addition, you will need to create the following managed policies
-----------------------------------------------------------------------------------
-|EKS|
+
+EKS
 
 {
     "Version": "2012-10-17",
@@ -65,9 +64,9 @@ In addition, you will need to create the following managed policies
 # Terraform
 You need to run the following commands to create the resources with Terraform:
 
-|terraform init|
-|terraform plan|
-|terraform apply|
+terraform init
+terraform plan
+terraform apply
 TIP: you should save the plan state terraform plan -out eks-state or even better yet, setup remote storage for Terraform state. You can store state in an S3 backend, with locking via DynamoDB
 
 # Setup kubectl
