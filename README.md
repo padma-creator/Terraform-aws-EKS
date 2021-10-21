@@ -84,8 +84,8 @@ Initially, only the system that deployed the cluster will be able to access the 
 ``` sudo kubectl edit -n kube-system configmap/aws-auth  ```
 
 # Add the following configuration in that file by changing the placeholders:
-```mapUsers: 
-  - userarn: arn:aws:iam::111122223333:user/<username>
+```mapUsers: |
+  -userarn: arn:aws:iam::111122223333:user/<username>
     username: <username>
     groups:
       - system:masters ```
