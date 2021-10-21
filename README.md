@@ -64,17 +64,19 @@ EKS
 ```
 # Terraform
 You need to run the following commands to create the resources with Terraform:
-
+```
 terraform init
 terraform plan
 terraform apply
-TIP: you should save the plan state terraform plan -out eks-state or even better yet, setup remote storage for Terraform state. You can store state in an S3 backend, with locking via DynamoDB
+```
+TIP: you should save the plan state ```terraform plan -out eks-state ```or even better yet, setup ```remote storage ``` for Terraform state. You can store state in an S3 backend, with locking via DynamoDB
 
 # Setup kubectl
-# Setup your KUBECONFIG
+# Setup your``` KUBECONFIG```
 
-terraform output kubeconfig > ~/.kube/eks-cluster
+```terraform output kubeconfig > ~/.kube/eks-cluster
 export KUBECONFIG=~/.kube/eks-cluster
+```
 # Authorize users to access the cluster
 Initially, only the system that deployed the cluster will be able to access the cluster. To authorize other users for accessing the cluster, aws-auth config needs to be modified by using the steps given below:
 
