@@ -116,4 +116,5 @@ data:
 You can destroy this cluster entirely by running:
 
 ```terraform plan -destroy
-    terraform destroy  --force ```
+     terraform destroy  --force 
+```
