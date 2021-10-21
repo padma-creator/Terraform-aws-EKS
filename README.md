@@ -80,14 +80,14 @@ Initially, only the system that deployed the cluster will be able to access the 
 . Open the aws-auth file in the edit mode on the machine that has been used to deploy EKS cluster:
 sudo kubectl edit -n kube-system configmap/aws-auth
 . Add the following configuration in that file by changing the placeholders:
-```|mapUsers: |
+|mapUsers: |
  | - userarn: arn:aws:iam::111122223333:user/<username>|
    | username: <username>|
     |groups:|
-      |- system:masters|```
+      |- system:masters|
 # So, the final configuration would look like this:
 
-``` apiVersion: v1
+ apiVersion: v1
 data:
   mapRoles: |
     - rolearn: arn:aws:iam::555555555555:role/devel-worker-nodes-NodeInstanceRole-74RF4UBDUKL6
@@ -99,7 +99,7 @@ data:
     - userarn: arn:aws:iam::111122223333:user/<username>
       username: <username>
       groups:
-        - system:masters```
+        - system:masters
 # Once the user map is added in the configuration we need to create cluster role binding for that user:
 |. kubectl create clusterrolebinding ops-user-cluster-admin-binding-<username> --clusterrole=cluster-admin --user=<username>|
 # Replace the placeholder with proper values
