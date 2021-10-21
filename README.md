@@ -84,10 +84,10 @@ Initially, only the system that deployed the cluster will be able to access the 
 ``` sudo kubectl edit -n kube-system configmap/aws-auth  ```
 
 # Add the following configuration in that file by changing the placeholders:
-``` mapUsers: 
-  -userarn: arn:aws:iam::111122223333:user/<username>
-    username: <username>
-    groups:
+``` mapUsers: |
+     -userarn: arn:aws:iam::111122223333:user/<username>
+     username: <username>
+     groups:
       - system:masters 
  ```
     
@@ -109,11 +109,11 @@ data:
 ```
         
 # Once the user map is added in the configuration we need to create cluster role binding for that user:
- kubectl create clusterrolebinding ops-user-cluster-admin-binding-<username> --clusterrole=cluster-admin --user=<username> 
+``` kubectl create clusterrolebinding ops-user-cluster-admin-binding-<username> --clusterrole=cluster-admin --user=<username> ```
 # Replace the placeholder with proper values
 
 # Cleaning up
 You can destroy this cluster entirely by running:
 
-terraform plan -destroy
-terraform destroy  --force 
+```terraform plan -destroy
+terraform destroy  --force ```
