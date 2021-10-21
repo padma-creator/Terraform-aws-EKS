@@ -48,7 +48,7 @@ The AWS credentials must be associated with a user having at least the following
 In addition, you will need to create the following managed policies
 
 EKS
-
+'''
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -60,7 +60,7 @@ EKS
             "Resource": "*"
         }
     ]
-}
+} '''
 # Terraform
 You need to run the following commands to create the resources with Terraform:
 
@@ -87,7 +87,7 @@ sudo kubectl edit -n kube-system configmap/aws-auth
       |- system:masters|
 # So, the final configuration would look like this:
 
-|apiVersion: v1
+''' apiVersion: v1
 data:
   mapRoles: |
     - rolearn: arn:aws:iam::555555555555:role/devel-worker-nodes-NodeInstanceRole-74RF4UBDUKL6
@@ -99,7 +99,7 @@ data:
     - userarn: arn:aws:iam::111122223333:user/<username>
       username: <username>
       groups:
-        - system:masters|
+        - system:masters '''
 # Once the user map is added in the configuration we need to create cluster role binding for that user:
 |. kubectl create clusterrolebinding ops-user-cluster-admin-binding-<username> --clusterrole=cluster-admin --user=<username>|
 # Replace the placeholder with proper values
