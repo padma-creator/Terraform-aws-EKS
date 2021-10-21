@@ -37,14 +37,14 @@ You can configure you config with the following input variables:
 # IAM
 The AWS credentials must be associated with a user having at least the following AWS managed IAM policies
 ----------------------------------------------------------------------------------------------------------------
-1.IAMFullAccess
-2.AutoScalingFullAccess
-3.AmazonEKSClusterPolicy
-4.AmazonEKSWorkerNodePolicy
-5.AmazonVPCFullAccess
-6.AmazonEKSServicePolicy
-7.AmazonEKS_CNI_Policy
-8.AmazonEC2FullAccess
+* 1.IAMFullAccess
+* 2.AutoScalingFullAccess
+* 3.AmazonEKSClusterPolicy
+* 4.AmazonEKSWorkerNodePolicy
+* 5.AmazonVPCFullAccess
+* 6.AmazonEKSServicePolicy
+* 7.AmazonEKS_CNI_Policy
+* 8.AmazonEC2FullAccess
 In addition, you will need to create the following managed policies
 
 EKS
@@ -92,19 +92,18 @@ Initially, only the system that deployed the cluster will be able to access the 
  ```
     
 # So, the final configuration would look like this:
-
- ``` apiVersion: v1
-data:
-  mapRoles: |
-    - rolearn: arn:aws:iam::555555555555:role/devel-worker-nodes-NodeInstanceRole-74RF4UBDUKL6
-      username: system:node:{{EC2PrivateDNSName}}
-      groups:
+```apiVersion: v1
+   data:
+     mapRoles: |
+       - rolearn: arn:aws:iam::555555555555:role/devel-worker-nodes-NodeInstanceRole-74RF4UBDUKL6
+        username: system:node:{{EC2PrivateDNSName}}
+        groups:
         - system:bootstrappers
         - system:nodes
-  mapUsers: |
-    - userarn: arn:aws:iam::111122223333:user/<username>
-      username: <username>
-      groups:
+     mapUsers: |
+      - userarn: arn:aws:iam::111122223333:user/<username>
+        username: <username>
+        groups:
         - system:masters 
 ```
         
@@ -116,5 +115,5 @@ data:
 You can destroy this cluster entirely by running:
 
 ``` terraform plan -destroy
-     terraform destroy  --force 
+    terraform destroy  --force 
 ```
