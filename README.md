@@ -60,7 +60,8 @@ EKS
             "Resource": "*"
         }
     ]
-} ```
+} 
+```
 # Terraform
 You need to run the following commands to create the resources with Terraform:
 
